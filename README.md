@@ -1,5 +1,5 @@
 # REACT REPOSITORY - Testing the React Tutorial
-# https://facebook.github.io/react/docs/tutorial.html
+https://facebook.github.io/react/docs/tutorial.html
 
 
 # WEBPACK
