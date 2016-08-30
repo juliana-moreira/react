@@ -8,7 +8,7 @@ class CommentBox extends React.Component {
 	//In ES6 structure we use the constructor to generate new state variables
 	constructor(props) {
 		super(props);
-		this.state = {data: []};
+		this.state = {data: [], url: this.props.url};
   }
 
   //Get the results from comments.json
@@ -36,16 +36,35 @@ class CommentBox extends React.Component {
 		var newComments = comments.concat([comment]);
 		this.setState({data: newComments});
 
+		// console.log("1");
+		// console.log(this.state.data);
+		// console.log("2");
+		// console.log(comment);
+
+
+    // NOTE: In a real implementation, we would likely rely on a database or
+    // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
+    // treat Date.now() as unique-enough for our purposes.
+    // var newComment = {
+    //   id: Date.now(),
+    //   author: comment.author,
+    //   text: comment.text
+    // };
+    // comments.push(newComment);
+    // console.log(JSON.stringify(comments));
+
+
 		$.ajax({
-			url: this.props.url,
-			dataType: 'json',
+			url: this.state.url,
+			dataType: 'JSON',
+			cache: false,
 			type: 'POST',
-			data: comment,
+			data: newComments,
 			success: function(data) {
-				this.setState({data: data})
+				this.setState({data: data});
 			}.bind(this),
 			error: function(xhr, status, err) {
-				this.setState({data: comments});
+				this.setState({data: newComments});
 				console.error(this.props.url, status, err.toString());
 			}.bind(this)
 		});
@@ -56,7 +75,7 @@ class CommentBox extends React.Component {
 		this.loadCommentsFromServer();
 		//Since we are using an ES6 structure, we need to use bind(this) to send
 		//the props to the right environment
-		setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
+		// setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
 	}
 
 	render() {
