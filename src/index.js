@@ -56,10 +56,11 @@ class CommentBox extends React.Component {
 
 		$.ajax({
 			url: this.state.url,
-			dataType: 'JSON',
+			dataType: 'json',
 			cache: false,
-			type: 'POST',
-			data: newComments,
+			type: 'post',
+			data: JSON.stringify(newComments),
+      params: JSON.stringify(newComments),
 			success: function(data) {
 				this.setState({data: data});
 			}.bind(this),
@@ -76,6 +77,15 @@ class CommentBox extends React.Component {
 		//Since we are using an ES6 structure, we need to use bind(this) to send
 		//the props to the right environment
 		// setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
+    // console.dir(">",jsonfile.readFileSync('comments.json' ));
+
+    // jsonfile.writeFile('comments.json', {name: 'JP'}, function (err) {
+    //   console.error(err);
+    // });
+
+// fs.writeFile('comments.json', 'Hello World!').then(function() {
+//   return fs.readdir('foo');
+// });
 	}
 
 	render() {
