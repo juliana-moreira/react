@@ -15,6 +15,9 @@ module.exports = {
     fs: "empty"
   },
   module: {
+    preLoaders: [
+        { test: /\.json$/, exclude: /node_modules/, loader: 'json'},
+    ],
     loaders: [
       { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src') },
     ]

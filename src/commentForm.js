@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Controller from './controller/Controller';
+
 export class CommentForm extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {author: "", text: ""};
+		this.state = {
+      author: "",
+      text: "",
+      fetchAfterNewComment: props.fetchAfterNewComment,
+    };
   }
 
   //called on the onChange event
@@ -25,10 +31,15 @@ export class CommentForm extends React.Component {
   	if(!text || !author) {
   		return;
   	}
-  	//get the callback when the user submits the form
-  	this.props.onCommentSubmit({author: author, text: text});
-  	//clear the inputs
-  	this.setState({author: '', text: ''});
+
+    let payload = `{
+        "author": "${author}",
+        "text": "${text}"
+      }`;
+
+    payload = JSON.parse(payload);
+
+    Controller.storeCommentsFile(payload, this.state.fetchAfterNewComment);
   }
 
   render() {
