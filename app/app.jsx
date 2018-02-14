@@ -5,19 +5,6 @@ var ReactDOM = require('react-dom');
 // or this way if you are using alias:
 // var ComponentExample = require('ComponentExampleAlias');
 
-
-var objOne = {
-  name: 'Juliana',
-  location: 'Brazil'
-};
-
-var objTwo = {
-  age: 26,
-  ...objOne
-};
-
-console.log(objTwo);
-
 ReactDOM.render(
   <h1>Boilerplate app!</h1>,
   document.getElementById('app')
