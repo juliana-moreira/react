@@ -1,12 +1,13 @@
 {
-  "name": "hello-react",
+  "name": "reactbabeljsx",
   "version": "1.0.0",
-  "description": "Simple react app",
+  "private": true,
+  "description": "Simple react app with webpack, babel and JSX",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Andrew Mead",
+  "author": "Juliana Santos Flor",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
