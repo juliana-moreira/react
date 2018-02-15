@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate",
+  "name": "weatherapp",
   "version": "1.0.0",
   "private": true,
-  "description": "Simple react app with Webpack, Babel and JSX",
+  "description": "Weather App using React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.13.4",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
