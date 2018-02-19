@@ -1,7 +1,9 @@
 var React = require('react');
+var {Link} = require('react-router');
 
 var Nav = React.createClass({
   render: function() {
+    
     var navStyle = {
       background: '#d4d4d4',
       position: 'relative',
@@ -26,9 +28,15 @@ var Nav = React.createClass({
       <div style={navStyle}>
         <span style={navItemsStyle}>React Weather</span>
         <ul style={navItemsStyle}>
-          <li style={navListStyle}><a href='#'>Get Weather</a></li>
-          <li style={navListStyle}><a href='#'>About</a></li>
-          <li style={navListStyle}><a href='#'>Examples</a></li>
+          <li style={navListStyle}>
+            <Link to="/">Get Weather</Link>
+          </li>
+          <li style={navListStyle}>
+            <Link to="/about">About</Link>
+          </li>
+          <li style={navListStyle}>
+            <Link to="/examples">Examples</Link>
+          </li>
         </ul>
         <span style={navNameStyle}>Juliana Flor</span>
       </div>
