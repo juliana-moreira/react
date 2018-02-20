@@ -1,5 +1,5 @@
 var React = require('react');
-var {Link} = require('react-router');
+var {Link, IndexLink} = require('react-router');
 
 var Nav = React.createClass({
   render: function() {
@@ -20,6 +20,14 @@ var Nav = React.createClass({
       display: 'inline-block',
       padding: '0 5px'
     };
+    var navListLinkStyle = {
+      textDecoration: 'none',
+      color: 'cornflowerblue'
+    };
+    var navListLinkActiveStyle = {
+      color: 'blue',
+      fontWeight: 'bold'
+    };
     var navNameStyle = {
       float: 'right'
     };
@@ -29,13 +37,13 @@ var Nav = React.createClass({
         <span style={navItemsStyle}>React Weather</span>
         <ul style={navItemsStyle}>
           <li style={navListStyle}>
-            <Link to="/">Get Weather</Link>
+            <IndexLink to="/" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Get Weather</IndexLink>
           </li>
           <li style={navListStyle}>
-            <Link to="/about">About</Link>
+            <Link to="/about" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>About</Link>
           </li>
           <li style={navListStyle}>
-            <Link to="/examples">Examples</Link>
+            <Link to="/examples" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Examples</Link>
           </li>
         </ul>
         <span style={navNameStyle}>Juliana Flor</span>
