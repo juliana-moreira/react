@@ -1,52 +1,50 @@
 var React = require('react');
 var {Link, IndexLink} = require('react-router');
 
-var Nav = (props) => {
-  var navStyle = {
-    background: '#d4d4d4',
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '10px'
-  };
-  var navItemsStyle = {
-    float: 'left',
-    top: '0',
-    bottom: '0',
-    margin: '0'
-  };
-  var navListStyle = {
-    display: 'inline-block',
-    padding: '0 5px'
-  };
-  var navListLinkStyle = {
-    textDecoration: 'none',
-    color: 'cornflowerblue'
-  };
-  var navListLinkActiveStyle = {
-    color: 'blue',
-    fontWeight: 'bold'
-  };
-  var navNameStyle = {
-    float: 'right'
-  };
-
-  return (
-    <div style={navStyle}>
-      <span style={navItemsStyle}>React Weather</span>
-      <ul style={navItemsStyle}>
-        <li style={navListStyle}>
-          <IndexLink to="/" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Get Weather</IndexLink>
-        </li>
-        <li style={navListStyle}>
-          <Link to="/about" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>About</Link>
-        </li>
-        <li style={navListStyle}>
-          <Link to="/examples" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Examples</Link>
-        </li>
-      </ul>
-      <span style={navNameStyle}>Juliana Flor</span>
-    </div>
-  );
-};
+var Nav = React.createClass({
+  onSearch: function(e) {
+    e.preventDefault();
+    console.log("Not yet wired up!");
+  },
+  render: function() {
+    var navListLinkStyle = {
+      textDecoration: 'none'
+    };
+    var navListLinkActiveStyle = {
+      fontWeight: 'bold'
+    };
+    
+    return (
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <ul className="menu">
+            <li className="menu-text">React Weather App</li>
+            <li>
+              <IndexLink to="/" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Get Weather</IndexLink>
+            </li>
+            <li>
+              <Link to="/about" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>About</Link>
+            </li>
+            <li>
+              <Link to="/examples" activeClassName='active' activeStyle={navListLinkActiveStyle} style={navListLinkStyle}>Examples</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="top-bar-right">
+          <form onSubmit={this.onSearch}>
+            <ul className="menu">
+              <li>
+                <input type="search" placeholder="Search weather" />
+              </li>
+              <li>
+                <input type="submit" className="button" value="Get Weather" />
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    );
+  }
+});
 
 module.exports = Nav;

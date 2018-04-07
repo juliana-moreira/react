@@ -12,28 +12,13 @@ var WeatherForm = React.createClass({
     }
   },
   render: function() {
-
-    var inputStyle = {
-      width: '100%',
-      padding: '10px',
-      marginBottom: '10px',
-      boxSizing: 'border-box'
-    };
-    var buttonStyle = {
-      width: '100%',
-      padding: '10px',
-      background: 'white',
-      border: '1px solid cornflowerblue',
-      color: 'cornflowerblue'
-    };
-
     return (
       <form onSubmit={this.onFormSubmit}>
         <div>
-          <input type='text' ref='location' placeholder='Enter city name' style={inputStyle} />
+          <input type='text' ref='location' placeholder='Enter city name' />
         </div>
         <div>
-          <button style={buttonStyle}>Get Weather</button>
+          <button>Get Weather</button>
         </div>
       </form>
     );

@@ -28,13 +28,6 @@ var Weather = React.createClass({
     });
   },
   render: function() {
-    var generalStyle = {
-      textAlign: 'center',
-      width: '40%',
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    };
-
     var {isLoading, temp, location} = this.state;
 
     function renderMessage() {
@@ -46,7 +39,7 @@ var Weather = React.createClass({
     };
 
     return (
-      <div style={generalStyle}>
+      <div>
         <h2>Get Weather</h2>
         <WeatherForm onSearch={this.handleSearch} />
         {renderMessage()}
